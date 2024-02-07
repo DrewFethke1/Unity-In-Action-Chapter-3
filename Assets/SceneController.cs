@@ -18,8 +18,10 @@ public class SceneController : MonoBehaviour
     private void SpawnEnemy()
     {
         enemy = Instantiate(enemyPrefab) as GameObject;
-        float randomHeight = Random.Range(1.0f, 3.0f);
-        enemy.transform.position = new Vector3(0, randomHeight, 0);
+        float originalY = 2.0f; // Adjust this value to your desired Y position
+        float randomHeightOffset = Random.Range(-0.3f, 0.2f); // Change the range as needed
+        float newHeight = originalY + randomHeightOffset;
+        enemy.transform.position = new Vector3(0, newHeight, 0);
         float angle = Random.Range(0, 360);
         enemy.transform.Rotate(0, angle, 0);
         SetRandomColor(enemy);
